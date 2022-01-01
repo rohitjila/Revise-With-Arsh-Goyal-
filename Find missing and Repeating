@@ -1,0 +1,30 @@
+#User function Template for python3
+
+class Solution:
+    def Sum(self,arr):
+        s=0
+        for i in range(len(arr)):
+            s+=arr[i]
+        return s
+    def findTwoElement( self,arr, n): 
+        SumofArray= self.Sum(arr)
+        #by using set function we exclude duplicates elements and then we will calculate the sum of uniqueelemnets
+        #of an array
+        SumofUniqueArray= sum(set(arr))
+        A=SumofArray - SumofUniqueArray
+        SumofNarray=n*(n+1)//2
+        B=SumofNarray - SumofUniqueArray
+        return A , B
+        # a=sum(arr) -sum(set(arr))
+        # b=n*(n+1)//2
+        # c=b-sum(set(arr))
+        # return a,c
+        # arr.sort()
+        # for i in range(n-1):
+        #     if (arr[i] == arr[i+1]):
+        #         A=arr[i]
+        #         break
+        # for i in range(1,n+1):
+        #     if (i not in arr):
+        #         B=i
+        # return A,B
