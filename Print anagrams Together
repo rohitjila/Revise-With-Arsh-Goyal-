@@ -1,0 +1,14 @@
+from collections import defaultdict
+class Solution:
+    def Anagrams(self, words, n):
+        ans=[]
+        hp=defaultdict(list)
+        for i in range(n):
+            key="".join(sorted(words[i]))
+            if (key in hp):
+                hp[key].append(words[i])
+            else:
+                hp[key].append(words[i])
+        for i in hp:
+            ans.append(hp[i])
+        return ans
