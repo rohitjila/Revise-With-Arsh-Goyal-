@@ -1,0 +1,10 @@
+class Solution:
+    def gcdOfStrings(self, s: str, t: str) -> str:
+        if (s + t != t + s):
+            return ""
+        if (s == t):
+            return s
+        elif (len(s) > len(t)):
+            return self.gcdOfStrings(s[len(t):], t)
+        else:
+            return self.gcdOfStrings(t[len(s):],s)
