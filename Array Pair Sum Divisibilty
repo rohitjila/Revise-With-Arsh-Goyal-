@@ -1,0 +1,25 @@
+from collections import defaultdict
+class Solution:
+	def canPair(self, arr, k):
+	    n=len(nums)
+		hashmap=defaultdict(lambda : 0)
+        for i in range(n):
+            rem=arr[i]%k
+            hashmap[rem]+=1
+            
+        for i in range(n):
+            rem = arr[i] % k
+            if (rem == 0):
+                if (hashmap[rem] % 2  == 1):
+                    return False
+            elif (2 * rem == k): 
+                if (hashmap[rem] % 2 == 1):
+                    return False
+            else:
+                of=hashmap[rem]
+                nf=k - rem
+                new_f=hashmap[nf]
+                
+                if (new_f != of):
+                    return False
+        return True
