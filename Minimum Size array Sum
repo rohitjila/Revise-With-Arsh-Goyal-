@@ -1,0 +1,17 @@
+class Solution:
+    def minSubArrayLen(self, target: int, arr: List[int]) -> int:
+        n=len(arr)
+        ans=9999999
+        i=0
+        j=0
+        Sum=0
+        while(j < n):
+            Sum+=arr[j]
+            j+=1
+
+            while(Sum >= target):
+                ans = min(ans,j-i)
+                Sum-=arr[i]
+                i+=1
+        ans=0 if (ans == 9999999) else ans
+        return ans
