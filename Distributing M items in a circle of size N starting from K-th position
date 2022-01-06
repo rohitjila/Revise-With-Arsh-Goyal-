@@ -1,0 +1,7 @@
+class Solution:
+    def findPosition(self, n , m , k):
+        if (n == 1): return 1
+        if ((m+k-1)%n) == 0:
+            return n
+        else:
+            return (m+k-1)%n
