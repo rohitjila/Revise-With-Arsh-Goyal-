@@ -1,0 +1,12 @@
+class Solution:
+    def printMinNumberForPattern(self,s):
+        ans=""
+        n=len(s)
+        stack=[]
+        for i in range(n+1):
+            stack.append(i+1)
+            
+            if (n == i or s[i] == "I"):
+                while(stack):
+                    ans+=str(stack.pop())
+        return ans
