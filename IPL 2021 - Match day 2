@@ -1,0 +1,25 @@
+class Solution:
+    def max_of_subarrays(self,arr,n,k):
+        n=len(arr)
+        deque=[]
+        ans=[]
+        for i in range(n):
+            if ( len(deque) != 0  and deque[0] == i-k):
+                deque.pop(0)
+            while(len(deque) != 0 and arr[deque[-1]] < arr[i]):
+                deque.pop()
+            deque.append(i)
+            if (i >= k-1):
+                ans.append(arr[deque[0]])
+        return ans
+        # res=[]
+        # for i in range(n-k+1):
+        #     count=0
+        #     ans=0
+        #     j=i
+        #     while(count < k):
+        #         ans=max(ans,arr[j])
+        #         j+=1
+        #         count+=1
+        #     res.append(ans)
+        # return res
