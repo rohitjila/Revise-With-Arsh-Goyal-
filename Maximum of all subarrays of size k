@@ -1,0 +1,15 @@
+class Solution:
+    
+    #Function to find maximum of each subarray of size k.
+    def max_of_subarrays(self,arr,n,k):
+        deque=[]
+        ans=[]
+        for i in range(n):
+            if ( len(deque) != 0  and deque[0] == i-k):
+                deque.pop(0)
+            while(len(deque) != 0 and arr[deque[-1]] < arr[i]):
+                deque.pop()
+            deque.append(i)
+            if (i >= k-1):
+                ans.append(arr[deque[0]])
+        return ans
