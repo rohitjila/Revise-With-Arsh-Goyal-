@@ -1,0 +1,14 @@
+class Solution:
+    def colName(self, n):
+        res = ""
+        while n > 0:
+            temp = n % 26
+            if (temp == 0):
+                res += chr (ord('Z') + temp)
+                n //= 26
+                n-=1
+            else:
+                res += chr (ord('A') + temp-1)
+                n //= 26
+        res = res[::-1]
+        return res
