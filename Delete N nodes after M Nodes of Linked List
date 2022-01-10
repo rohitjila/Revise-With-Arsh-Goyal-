@@ -1,0 +1,21 @@
+class Solution:
+    def skipMdeleteN(self, head, M, N):
+        if (head.next == None or head is None):
+            return head
+        curr=head
+        while(curr):
+            for count in range(1,M):
+                if curr is None:
+                    return 
+                curr=curr.next
+            if curr is None:
+                return 
+            
+            
+            t=curr.next
+            for i in range(1,N+1):
+                if t is None:
+                    break
+                t=t.next
+            curr.next=t
+            curr=t
