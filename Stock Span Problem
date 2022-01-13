@@ -1,0 +1,25 @@
+class Solution:
+    
+    #Function to calculate the span of stockâ€™s price for all n days.
+    #Type of next greater element from left
+    def calculateSpan(self,arr,n):
+        ans=[]
+        stack=[]
+        for i in range(n):
+            if (len(stack) == 0):
+                ans.append(-1)
+            elif (len(stack) != 0 and arr[stack[-1]] > arr[i]):
+                ans.append(stack[-1])
+            elif (len(stack) != 0 and arr[stack[-1]] <= arr[i]):
+                while(len(stack) != 0 and arr[stack[-1]] <= arr[i]):
+                    stack.pop()
+                if (len(stack) == 0):
+                    ans.append(-1)
+                else:
+                    ans.append(stack[-1])
+            stack.append(i)
+            
+        output=[]
+        for i in range(n):
+            output.append(i-ans[i])
+        return output
