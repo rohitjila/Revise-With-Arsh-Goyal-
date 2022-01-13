@@ -1,0 +1,33 @@
+#User function Template for python3
+
+
+class Solution:
+    
+    #Function to find list of all words possible by pressing given numbers.
+    def possibleWords(self,a,N):
+        for i in range(N):
+            a[i]=str(a[i])
+        a="".join(a)
+        res=[]
+        digitToChar={"2":"abc",
+                     "3":"def",
+                     "4":"ghi",
+                     "5":"jkl",
+                     "6":"mno",
+                     "7":"pqrs",
+                     "8":"tuv",
+                     "9":"wxyz"
+                    }
+                    
+                    
+                    
+        def backtrack(i,currStr):
+            if (len(currStr) == N):
+                res.append(currStr)
+                return 
+            
+            for c in digitToChar[a[i]]:
+                backtrack(i+1,currStr+c)
+                
+        backtrack(0,"")
+        return res
