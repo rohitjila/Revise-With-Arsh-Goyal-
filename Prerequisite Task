@@ -1,0 +1,25 @@
+class Solution:
+    def isPossible(self,V,P):
+        adj=[[] for i in range(V)]
+        for u , v in P:
+            adj[u].append(v)
+        cnt=0
+        indegree=[0]*V
+        for i in range(V):
+            for it in adj[i]:
+                indegree[it]+=1
+        
+            
+        queue=[]
+        for i in range(V):
+            if (indegree[i] == 0):
+                queue.append(i)
+        
+        while(queue):
+            node=queue.pop(0)
+            cnt+=1
+            for i in adj[node]:
+                indegree[i]-=1
+                if (indegree[i] == 0):
+                    queue.append(i)
+        return (cnt == N)
