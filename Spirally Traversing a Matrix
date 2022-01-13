@@ -1,0 +1,35 @@
+#User function Template for python3
+
+class Solution:
+    
+    #Function to return a list of integers denoting spiral traversal of matrix.
+    def spirallyTraverse(self,matrix, r, c): 
+        res=[]
+        left,right=0,c
+        top,bottom=0,r
+        while(left < right and top < bottom):
+            #appending all the value from left to right
+            for i in range(left,right):
+                res.append(matrix[top][i])
+            top+=1
+            
+            #appending all the downword value
+            for i in range(top,bottom):
+                res.append(matrix[i][right-1])
+            right-=1
+            
+            if not (left < right and top < bottom):
+                break
+            
+            #appending all the value from right to left
+            for i in range(right-1,left-1,-1):
+                res.append(matrix[bottom-1][i])
+            bottom-=1
+            
+            #appending the value from bottom to top
+            
+            for i in range(bottom-1,top-1,-1):
+                res.append(matrix[i][left])
+            left+=1
+        return res
+            
