@@ -1,0 +1,11 @@
+def rotate(matrix): 
+    r=len(matrix)
+    c=len(matrix[0])
+    for i in range(r):
+        matrix[i].reverse()
+    for i in range(r):
+        for j in range(i):
+            temp=matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = temp
+    return matrix
