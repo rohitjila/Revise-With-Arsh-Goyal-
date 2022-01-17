@@ -1,0 +1,19 @@
+from collections import OrderedDict
+class Solution:
+    
+    #Complete this function
+    
+    #Function to return the name of candidate that received maximum votes.
+    def winner(self,arr,n):
+        res=[]
+        mp=OrderedDict({})
+        for i in arr:
+            mp[i]=mp.get(i,0)+1
+            
+        mp=OrderedDict(sorted(mp.items()))
+        mx=0
+        for k,v in mp.items():
+            if (v > mx):
+                mx=v
+                ans=k
+        return [ans,mx]
