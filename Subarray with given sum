@@ -1,0 +1,22 @@
+def array(arr,n,target):
+    i=0
+    j=0
+    Sum=0
+    while(j < n):
+        Sum+=arr[j]
+        if (Sum < target):
+            j+=1
+        elif(Sum == target):
+            return[i+1,j+1]
+        else:
+            while(Sum > target):
+                Sum-=arr[i]
+                i+=1
+                if (Sum == target):
+                    return [i+1,j+1]
+            j+=1
+    return [-1]
+arr=[1,2,3,7,5]
+n=len(arr)
+target=12
+print(array(arr,n,target))
