@@ -1,0 +1,9 @@
+class Solution:
+    def leaders(self, arr, n):
+        res=[]
+        res.append(arr[n-1])
+        for i in range(n-2,-1,-1):
+            if (arr[i] >= res[-1]):
+                res.append(arr[i])
+        res.reverse()
+        return res
