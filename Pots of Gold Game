@@ -1,0 +1,13 @@
+class Solution:
+    def solve(self,i,j,arr,dp):
+        if (i > j): return 0
+        if (dp[i][j] != -1): return dp[i][j]
+        x=arr[i] + min(self.solve(i+2,j,arr,dp),self.solve(i+1,j-1,arr,dp))
+        y=arr[j] + min(self.solve(i+1,j-1,arr,dp),self.solve(i,j-2,arr,dp))
+        dp[i][j]= max(x,y)
+        return dp[i][j]
+        
+        
+    def maxCoins(self,arr, n):
+        dp=[[-1 for i in range(n)] for i in range(n)]
+        return self.solve(0,n-1,arr,dp)
