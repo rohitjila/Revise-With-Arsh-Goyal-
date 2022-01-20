@@ -1,0 +1,13 @@
+class Solution:
+    def reachNumber(self, target: int) -> int:
+        steps,Sum=0,0
+        target=abs(target)
+        while(Sum < target):
+            Sum+=steps
+            steps+=1
+            
+        while((Sum - target) % 2 == 1):
+            Sum+=steps
+            steps+=1
+        return steps-1
+        
