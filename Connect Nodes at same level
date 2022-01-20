@@ -1,0 +1,18 @@
+
+
+class Solution:
+    #Function to connect nodes at same level.
+    def connect(self, root):
+        q=[]
+        q.append(root)
+        while(q):
+            curr=len(q)
+            for i in range(curr):
+                curr_node=q[0]
+                if (i != curr - 1):
+                    curr_node.nextRight = q[1]
+                if (curr_node.left):
+                    q.append(curr_node.left)
+                if (curr_node.right):
+                    q.append(curr_node.right)
+                q.pop(0)
