@@ -1,0 +1,12 @@
+def generate(n):
+    q=[]
+    ans=[]
+    q.append("1")
+    while(n):
+        n-=1
+        s1=q.pop(0)
+        ans.append(s1)
+        s2=s1
+        q.append(s1+"0")
+        q.append(s2+"1")
+    return ans
