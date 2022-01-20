@@ -1,0 +1,16 @@
+'''
+def solve(root,x):
+    global count
+    if (root == None): return 0
+    left=solve(root.left,x)
+    right=solve(root.right,x)
+    Sum = root.data + left + right
+    if (Sum == x):
+        count+=1
+    return Sum
+        
+def countSubtreesWithSumX(root, x):
+    global count
+    count=0
+    x=solve(root,x)
+    return count
