@@ -1,0 +1,16 @@
+class Solution:
+    def findCircleNum(self, M: List[List[int]]) -> int:
+        rows=len(M)
+        seen=set()
+        def dfs(r):
+            for c,val in enumerate(M[r]):
+                if val==1 and c not in seen:
+                    seen.add(c)
+                    dfs(c)
+        count=0
+        for i in range(rows):
+            if i not in seen:
+                dfs(i)
+                count+=1
+        return count
+        
