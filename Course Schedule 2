@@ -1,0 +1,24 @@
+class Solution: 
+    def dfs(self,node,adj,stack,visited):
+        visited[node]=1
+        for it in adj[node]:
+            if (visited[it] == 1): return True
+            if (visited[it] == 0):
+                if (self.dfs(it,adj,stack,visited)): return True
+        visited[node]=2
+        stack.append(node)
+        return False        
+    
+    def findOrder(self, V: int, prerequisites: List[List[int]]) -> List[int]:
+        adj=[[] for i in range(V)]
+        for u,v in prerequisites:
+            adj[u].append(v)
+            
+        stack=[]
+        visited=[0]*V
+        for i in range(V):
+            if (visited[i] == 0):
+                if (self.dfs(i,adj,stack,visited)): return []
+        stack[::-1]
+        return stack
+            
