@@ -1,0 +1,11 @@
+class Solution:
+    def maxPerformance(self, n: int, S: List[int], E: List[int], k: int) -> int:
+        sm, ans, heap = 0, 0, []
+        
+        for eff, speed in sorted(zip(E, S))[::-1]:
+            if len(heap) > k - 1: sm -= heappop(heap)
+            heappush(heap, speed)
+            sm += speed
+            ans = max(ans, sm*eff)
+        
+        return ans % (10**9 + 7)
