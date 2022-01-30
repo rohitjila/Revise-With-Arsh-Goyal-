@@ -1,0 +1,16 @@
+class Solution:
+    def winnerOfGame(self, colors: str) -> bool:
+        a = b = cnt = 0
+        prev = 'C' 
+        for cur in colors:
+            if cur == prev:
+                cnt += 1
+                if cnt > 2:
+                    if cur == 'A':
+                        a += 1
+                    else:
+                        b += 1
+            else:
+                cnt = 1
+            prev = cur
+        return a > b 
