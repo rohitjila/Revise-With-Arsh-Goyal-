@@ -1,0 +1,11 @@
+class Solution:
+    def solve(self,root):
+        if root is None:
+            return 0
+        a=self.solve(root.left)
+        b=self.solve(root.right)
+        x=root.data
+        root.data=a+b
+        return a+b+x
+    def toSumTree(self, root) :
+        self.solve(root)
